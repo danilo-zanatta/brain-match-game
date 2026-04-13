@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Springfield Memory Game V3</title>
+  <title>Springfield Memory Game Premium</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     :root {
       --yellow: #ffd90f;
@@ -17,10 +19,10 @@
       --blue: #2563eb;
       --ink: #1f2937;
       --muted: #4b5563;
-      --glass: rgba(255,255,255,0.88);
-      --glass-strong: rgba(255,255,255,0.96);
-      --shadow-lg: 0 18px 40px rgba(0,0,0,0.20);
-      --shadow-md: 0 10px 24px rgba(0,0,0,0.14);
+      --glass: rgba(255, 255, 255, 0.88);
+      --glass-strong: rgba(255, 255, 255, 0.96);
+      --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.20);
+      --shadow-md: 0 10px 24px rgba(0, 0, 0, 0.14);
       --radius-xl: 28px;
       --radius-lg: 20px;
       --radius-md: 16px;
@@ -160,7 +162,12 @@
       padding: 12px 14px;
       box-shadow: var(--shadow-md);
       min-width: 0;
-      min-height: 70px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 86px;
     }
 
     .stat-label {
@@ -199,14 +206,36 @@
       min-height: 46px;
     }
 
-    .btn:hover { transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
 
-    .btn-primary { background: var(--yellow); color: #111827; }
-    .btn-primary:hover { background: var(--yellow-strong); }
-    .btn-secondary { background: var(--sky); color: #0f172a; }
-    .btn-secondary:hover { background: var(--sky-strong); }
-    .btn-ghost { background: #eef6ff; color: #0f172a; }
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary {
+      background: var(--yellow);
+      color: #111827;
+    }
+
+    .btn-primary:hover {
+      background: var(--yellow-strong);
+    }
+
+    .btn-secondary {
+      background: var(--sky);
+      color: #0f172a;
+    }
+
+    .btn-secondary:hover {
+      background: var(--sky-strong);
+    }
+
+    .btn-ghost {
+      background: #eef6ff;
+      color: #0f172a;
+    }
 
     .side-panel,
     .panel,
@@ -268,8 +297,13 @@
       font-weight: 800;
     }
 
-    .rules .positive { color: var(--green); }
-    .rules .negative { color: var(--red); }
+    .rules .positive {
+      color: var(--green);
+    }
+
+    .rules .negative {
+      color: var(--red);
+    }
 
     .live-row {
       display: flex;
@@ -490,7 +524,9 @@
       background: rgba(15,23,42,0.58);
     }
 
-    .hidden { display: none; }
+    .hidden {
+      display: none;
+    }
 
     .overlay-card,
     .modal-card {
@@ -527,8 +563,13 @@
       margin: 22px 0;
     }
 
-    .start-grid { grid-template-columns: repeat(3, 1fr); }
-    .summary-grid { grid-template-columns: repeat(5, 1fr); }
+    .start-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .summary-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
 
     .start-card,
     .summary-card {
@@ -558,18 +599,37 @@
       .footer {
         grid-template-columns: 1fr;
       }
+
       .stats {
         grid-template-columns: repeat(3, minmax(120px, 1fr));
       }
     }
 
     @media (max-width: 900px) {
-      .page { padding: 14px; }
-      .hero, .board-shell, .panel, .side-panel { padding: 16px; }
-      .board { grid-template-columns: repeat(4, minmax(110px, 1fr)); gap: 12px; }
-      .card { height: 164px; }
-      .card-back img { height: 118px; }
-      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+      .page {
+        padding: 14px;
+      }
+
+      .hero, .board-shell, .panel, .side-panel {
+        padding: 16px;
+      }
+
+      .board {
+        grid-template-columns: repeat(4, minmax(110px, 1fr));
+        gap: 12px;
+      }
+
+      .card {
+        height: 164px;
+      }
+
+      .card-back img {
+        height: 118px;
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
@@ -577,27 +637,75 @@
       .inline-controls {
         grid-template-columns: 1fr;
       }
+
       .stats {
         grid-template-columns: repeat(2, minmax(120px, 1fr));
       }
-      .board { grid-template-columns: repeat(3, minmax(92px, 1fr)); }
-      .card { height: 152px; }
-      .card-back img { height: 108px; }
-      .toolbar { flex-direction: column; align-items: stretch; }
-      .btn { width: 100%; }
-      .brand { width: 100%; border-radius: 22px; }
+
+      .board {
+        grid-template-columns: repeat(3, minmax(92px, 1fr));
+      }
+
+      .card {
+        height: 152px;
+      }
+
+      .card-back img {
+        height: 108px;
+      }
+
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .brand {
+        width: 100%;
+        border-radius: 22px;
+      }
     }
 
     @media (max-width: 520px) {
-      .page { padding: 10px; }
-      .hero, .board-shell, .panel, .side-panel, .overlay-card, .modal-card { padding: 14px; }
-      h1 { font-size: 1.8rem; }
-      .board { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
-      .card { height: 150px; }
-      .card-back img { height: 106px; }
-      .summary-grid { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .stat-value { font-size: 1.02rem; }
+      .page {
+        padding: 10px;
+      }
+
+      .hero, .board-shell, .panel, .side-panel, .overlay-card, .modal-card {
+        padding: 14px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .board {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+      }
+
+      .card {
+        height: 150px;
+      }
+
+      .card-back img {
+        height: 106px;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .stat-value {
+        font-size: 1.02rem;
+      }
     }
   </style>
 </head>
@@ -608,9 +716,9 @@
 
   <div class="overlay" id="startScreen">
     <div class="overlay-card">
-      <h2>Springfield Memory Game V3</h2>
+      <h2>Springfield Memory Game Premium</h2>
       <p>
-        Versão consolidada com música de fundo, ranking local com nome do jogador,
+        Versão premium com música ambiente, ranking local com nome do jogador,
         combo, dificuldade, modo contra o tempo com tempo por dificuldade e interface adaptada para celular e tablet.
       </p>
 
@@ -625,6 +733,7 @@
           <label for="playerNameStart">Nome do jogador</label>
           <input id="playerNameStart" maxlength="18" placeholder="Digite seu nome" />
         </div>
+
         <div class="field">
           <label for="difficultyStart">Dificuldade</label>
           <select id="difficultyStart">
@@ -633,6 +742,7 @@
             <option value="hard">Difícil (20 pares)</option>
           </select>
         </div>
+
         <div class="field">
           <label for="modeStart">Modo</label>
           <select id="modeStart">
@@ -640,6 +750,7 @@
             <option value="timed">Contra o tempo</option>
           </select>
         </div>
+
         <div class="field">
           <label for="soundStart">Som e música</label>
           <select id="soundStart">
@@ -681,7 +792,7 @@
           <div class="brand-icon">☁️</div>
           <div>
             <div class="brand-title">Springfield Memory Game</div>
-            <div class="brand-subtitle">Versão 3 responsiva</div>
+            <div class="brand-subtitle">Dashboard premium</div>
           </div>
         </div>
       </div>
@@ -696,12 +807,35 @@
               </p>
 
               <div class="stats">
-                <div class="stat-card"><div class="stat-label">Jogador</div><div class="stat-value" id="playerDisplay">Visitante</div></div>
-                <div class="stat-card"><div class="stat-label">Jogadas</div><div class="stat-value" id="moves">0</div></div>
-                <div class="stat-card"><div class="stat-label">Pares</div><div class="stat-value"><span id="matches">0</span>/<span id="totalPairs">20</span></div></div>
-                <div class="stat-card"><div class="stat-label">Tempo</div><div class="stat-value" id="time">00:00</div></div>
-                <div class="stat-card"><div class="stat-label">Pontos</div><div class="stat-value" id="score">0</div></div>
-                <div class="stat-card"><div class="stat-label">Combo</div><div class="stat-value" id="combo">x0</div></div>
+                <div class="stat-card">
+                  <div class="stat-label">Jogador</div>
+                  <div class="stat-value" id="playerDisplay">Visitante</div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-label">Jogadas</div>
+                  <div class="stat-value" id="moves">0</div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-label">Pares</div>
+                  <div class="stat-value"><span id="matches">0</span>/<span id="totalPairs">20</span></div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-label">Tempo</div>
+                  <div class="stat-value" id="time">00:00</div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-label">Pontos</div>
+                  <div class="stat-value" id="score">0</div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-label">Combo</div>
+                  <div class="stat-value" id="combo">x0</div>
+                </div>
               </div>
 
               <div class="toolbar">
@@ -711,8 +845,11 @@
               </div>
 
               <div class="rules">
-                Regras: <span class="positive">+5 por acerto</span> | <span class="negative">-1 por erro</span> |
-                bônus de combo = <span class="positive">+2 por acerto consecutivo após o primeiro</span>
+                Regras:
+                <span class="positive">+5 por acerto</span> |
+                <span class="negative">-1 por erro</span> |
+                bônus de combo =
+                <span class="positive">+2 por acerto consecutivo após o primeiro</span>
               </div>
 
               <div class="live-row">
@@ -723,11 +860,13 @@
 
             <aside class="side-panel">
               <h2>Configuração atual</h2>
+
               <div class="inline-controls">
                 <div class="field">
                   <label for="playerName">Nome</label>
                   <input id="playerName" maxlength="18" placeholder="Nome do jogador" />
                 </div>
+
                 <div class="field">
                   <label for="difficultySelect">Dificuldade</label>
                   <select id="difficultySelect">
@@ -736,6 +875,7 @@
                     <option value="hard">Difícil</option>
                   </select>
                 </div>
+
                 <div class="field">
                   <label for="modeSelect">Modo</label>
                   <select id="modeSelect">
@@ -743,6 +883,7 @@
                     <option value="timed">Contra o tempo</option>
                   </select>
                 </div>
+
                 <div class="field">
                   <label for="soundSelect">Som e música</label>
                   <select id="soundSelect">
@@ -751,8 +892,10 @@
                   </select>
                 </div>
               </div>
+
               <div class="rules">
-                No modo contra o tempo, o tempo varia por dificuldade: Fácil (2 min), Médio (3 min), Difícil (4 min).
+                No modo contra o tempo, o tempo varia por dificuldade:
+                Fácil (2 min), Médio (3 min), Difícil (4 min).
               </div>
             </aside>
           </div>
@@ -767,9 +910,11 @@
         <div class="panel">
           <h3>Versão pública</h3>
           <p>
-            Esta edição já está preparada para uso em desktop, tablet e celular. O próximo salto seria usar assets próprios e um ranking online compartilhado.
+            Esta edição já está preparada para uso em desktop, tablet e celular.
+            O próximo salto seria usar imagens e sons próprios e um ranking online compartilhado.
           </p>
         </div>
+
         <div class="panel">
           <h3>Top 10 local</h3>
           <ul class="rank-list" id="rankingList"></ul>
@@ -1051,7 +1196,7 @@
     }
 
     function renderRanking() {
-      const items = JSON.parse(localStorage.getItem("springfield-memory-ranking-v3") || "[]");
+      const items = JSON.parse(localStorage.getItem("springfield-memory-ranking-premium") || "[]");
       rankingList.innerHTML = "";
       if (!items.length) {
         rankingList.innerHTML = `<li class="rank-item"><div>Nenhuma pontuação ainda<small>Jogue para popular o ranking</small></div><strong>--</strong></li>`;
@@ -1072,7 +1217,7 @@
     }
 
     function saveRanking(result) {
-      const key = "springfield-memory-ranking-v3";
+      const key = "springfield-memory-ranking-premium";
       const items = JSON.parse(localStorage.getItem(key) || "[]");
       items.push({
         player: currentPlayer,
@@ -1224,8 +1369,7 @@
 
     function restartGame() {
       stopTimer();
-      bgMusic.pause();
-      bgMusic.currentTime = 0;
+      stopMusic();
       deck = createDeck();
       firstCard = null;
       secondCard = null;
@@ -1279,15 +1423,18 @@
       applySettings(false);
       restartGame();
     });
+
     modeSelect.addEventListener("change", () => {
       applySettings(false);
       restartGame();
     });
+
     soundSelect.addEventListener("change", () => {
       applySettings(false);
       if (!soundEnabled) bgMusic.pause();
       updateMusicButton();
     });
+
     playerName.addEventListener("change", () => {
       applySettings(false);
       updateStats();
