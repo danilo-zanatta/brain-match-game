@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brain Match Game</title>
+  <title>Match Arena</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -13,19 +13,28 @@
 
   <div class="overlay" id="startScreen">
     <div class="overlay-card">
-      <h2>Brain Match Game Premium</h2>
+      <h2>Match Arena</h2>
       <p>
-        Versão premium com música ambiente, ranking local com nome do jogador,
-        combo, dificuldade, modo contra o tempo com tempo por dificuldade e interface adaptada para celular e tablet.
+        Jogo da memória com personagens originais, pontuação, combo,
+        ranking local e modo contra o tempo.
       </p>
 
       <div class="start-grid">
-        <div class="start-card">Acerto<strong style="color:#166534;">+5 pontos</strong></div>
-        <div class="start-card">Erro<strong style="color:#991b1b;">-1 ponto</strong></div>
-        <div class="start-card">Combo<strong>bônus por sequência</strong></div>
+        <div class="start-card">
+          Acerto
+          <strong style="color:#166534;">+5 pontos</strong>
+        </div>
+        <div class="start-card">
+          Erro
+          <strong style="color:#991b1b;">-1 ponto</strong>
+        </div>
+        <div class="start-card">
+          Combo
+          <strong>bônus por sequência</strong>
+        </div>
       </div>
 
-      <div class="inline-controls overlay-controls">
+      <div class="inline-controls" style="text-align:left; margin-bottom:16px;">
         <div class="field">
           <label for="playerNameStart">Nome do jogador</label>
           <input id="playerNameStart" maxlength="18" placeholder="Digite seu nome" />
@@ -34,9 +43,9 @@
         <div class="field">
           <label for="difficultyStart">Dificuldade</label>
           <select id="difficultyStart">
-            <option value="easy">Fácil (10 pares)</option>
-            <option value="medium" selected>Médio (15 pares)</option>
-            <option value="hard">Difícil (20 pares)</option>
+            <option value="easy">Fácil</option>
+            <option value="medium" selected>Médio</option>
+            <option value="hard">Difícil</option>
           </select>
         </div>
 
@@ -45,14 +54,6 @@
           <select id="modeStart">
             <option value="classic" selected>Clássico</option>
             <option value="timed">Contra o tempo</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="soundStart">Som e música</label>
-          <select id="soundStart">
-            <option value="on" selected>Ativado</option>
-            <option value="off">Desativado</option>
           </select>
         </div>
       </div>
@@ -64,22 +65,28 @@
     </div>
   </div>
 
-  <div class="modal hidden" id="winModal">
+  <div class="modal hidden" id="endScreen">
     <div class="modal-card">
-      <h2 id="resultTitle">Resultado final</h2>
-      <p id="resultText">Confira seu desempenho.</p>
+      <h2 id="endTitle">Resultado final</h2>
+      <p id="endText">Confira seu desempenho.</p>
 
       <div class="summary-grid">
-        <div class="summary-card">Jogador<strong id="finalPlayer">-</strong></div>
-        <div class="summary-card">Jogadas<strong id="finalMoves">0</strong></div>
-        <div class="summary-card">Pontos<strong id="finalScore">0</strong></div>
-        <div class="summary-card">Tempo<strong id="finalTime">00:00</strong></div>
-        <div class="summary-card">Combo máx<strong id="finalCombo">0</strong></div>
+        <div class="summary-card">
+          Pontos
+          <strong id="finalScore">0</strong>
+        </div>
+        <div class="summary-card">
+          Jogadas
+          <strong id="finalMoves">0</strong>
+        </div>
+        <div class="summary-card">
+          Pares
+          <strong id="finalPairs">0/0</strong>
+        </div>
       </div>
 
-      <div class="toolbar center-toolbar">
+      <div class="toolbar" style="justify-content:center;">
         <button class="btn btn-primary" id="playAgainBtn">Jogar novamente</button>
-        <button class="btn btn-secondary" id="closeResultBtn">Fechar</button>
       </div>
     </div>
   </div>
@@ -88,10 +95,10 @@
     <div class="container">
       <div class="topbar">
         <div class="brand">
-          <div class="brand-icon">☁️</div>
+          <div class="brand-icon">⚔️</div>
           <div>
-            <div class="brand-title">Brain Match Game</div>
-            <div class="brand-subtitle">Dashboard premium</div>
+            <div class="brand-title">Match Arena</div>
+            <div class="brand-subtitle">Memory game mobile-first</div>
           </div>
         </div>
       </div>
@@ -100,9 +107,10 @@
         <div class="hero-inner">
           <div class="hero-grid">
             <div>
-              <h1>Encontre os pares e maximize sua pontuação</h1>
+              <h1>Encontre os pares e faça a maior pontuação</h1>
               <p class="subtitle">
-                Cada acerto vale 5 pontos. Erros retiram 1 ponto. Sequências de acertos aumentam o combo e adicionam bônus.
+                Cada acerto vale 5 pontos. Cada erro retira 1 ponto.
+                Sequências aumentam o combo e o bônus.
               </p>
 
               <div class="stats">
@@ -118,12 +126,12 @@
 
                 <div class="stat-card">
                   <div class="stat-label">Pares</div>
-                  <div class="stat-value"><span id="matches">0</span>/<span id="totalPairs">20</span></div>
+                  <div class="stat-value" id="pairs">0</div>
                 </div>
 
                 <div class="stat-card">
                   <div class="stat-label">Tempo</div>
-                  <div class="stat-value" id="time">00:00</div>
+                  <div class="stat-value" id="time">--:--</div>
                 </div>
 
                 <div class="stat-card">
@@ -139,7 +147,6 @@
 
               <div class="toolbar">
                 <button class="btn btn-primary" id="restartBtn">Reiniciar</button>
-                <button class="btn btn-secondary" id="configBtn">Configurações</button>
                 <button class="btn btn-ghost" id="toggleMusicBtn">🔊 Música</button>
               </div>
 
@@ -147,8 +154,7 @@
                 Regras:
                 <span class="positive">+5 por acerto</span> |
                 <span class="negative">-1 por erro</span> |
-                bônus de combo =
-                <span class="positive">+2 por acerto consecutivo após o primeiro</span>
+                combo com bônus progressivo
               </div>
 
               <div class="live-row">
@@ -182,19 +188,11 @@
                     <option value="timed">Contra o tempo</option>
                   </select>
                 </div>
-
-                <div class="field">
-                  <label for="soundSelect">Som e música</label>
-                  <select id="soundSelect">
-                    <option value="on" selected>Ativado</option>
-                    <option value="off">Desativado</option>
-                  </select>
-                </div>
               </div>
 
               <div class="rules">
-                No modo contra o tempo, o tempo varia por dificuldade:
-                Fácil (2 min), Médio (3 min), Difícil (4 min).
+                No modo contra o tempo:
+                Fácil = 2 min, Médio = 3 min, Difícil = 4 min.
               </div>
             </aside>
           </div>
@@ -202,15 +200,15 @@
       </section>
 
       <section class="board-shell">
-        <div class="board" id="board"></div>
+        <div class="game-board" id="gameBoard"></div>
       </section>
 
       <section class="footer">
         <div class="panel">
-          <h3>Versão pública</h3>
+          <h3>Sobre o jogo</h3>
           <p>
-            Esta edição já está preparada para uso em desktop, tablet e celular.
-            O próximo salto seria usar imagens e sons próprios e um ranking online compartilhado.
+            Match Arena é um jogo da memória com foco em experiência mobile,
+            personagens originais, sistema de combo e ranking local.
           </p>
         </div>
 
