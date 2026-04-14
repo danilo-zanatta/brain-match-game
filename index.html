@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Springfield Memory Game Premium</title>
+  <title>Memory Match Arena</title>
   <style>
     * {
       box-sizing: border-box;
@@ -416,7 +416,7 @@
       transform: rotateY(180deg);
       display: flex;
       flex-direction: column;
-      background: linear-gradient(180deg, #fff7cc 0%, #ffffff 100%);
+      background: radial-gradient(circle at top, #38bdf8, #0f172a);
     }
 
     .card-back img {
@@ -760,7 +760,7 @@
 
   <div class="overlay" id="startScreen">
     <div class="overlay-card">
-      <h2>Springfield Memory Game Premium</h2>
+      <h2>Memory Match Arena Premium</h2>
       <p>
         Versão premium com música ambiente, ranking local com nome do jogador,
         combo, dificuldade, modo contra o tempo com tempo por dificuldade e interface adaptada para celular e tablet.
@@ -835,7 +835,7 @@
         <div class="brand">
           <div class="brand-icon">☁️</div>
           <div>
-            <div class="brand-title">Springfield Memory Game</div>
+            <div class="brand-title">Memory Match Arena</div>
             <div class="brand-subtitle">Dashboard premium</div>
           </div>
         </div>
@@ -969,27 +969,38 @@
 
   <script>
     const characters = [
-      { id: 1, name: "Homer Simpson", image: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png" },
-      { id: 2, name: "Marge Simpson", image: "https://upload.wikimedia.org/wikipedia/en/0/0b/Marge_Simpson.png" },
-      { id: 3, name: "Bart Simpson", image: "https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png" },
-      { id: 4, name: "Lisa Simpson", image: "https://upload.wikimedia.org/wikipedia/en/e/ec/Lisa_Simpson.png" },
-      { id: 5, name: "Maggie Simpson", image: "https://upload.wikimedia.org/wikipedia/en/9/9d/Maggie_Simpson.png" },
-      { id: 6, name: "Ned Flanders", image: "https://upload.wikimedia.org/wikipedia/en/8/84/Ned_Flanders.png" },
-      { id: 7, name: "Milhouse Van Houten", image: "https://upload.wikimedia.org/wikipedia/en/1/11/Milhouse_Van_Houten.png" },
-      { id: 8, name: "Nelson Muntz", image: "https://upload.wikimedia.org/wikipedia/en/4/4d/Nelson_Muntz.PNG" },
-      { id: 9, name: "Ralph Wiggum", image: "https://upload.wikimedia.org/wikipedia/en/1/14/Ralph_Wiggum.png" },
-      { id: 10, name: "Moe Szyslak", image: "https://upload.wikimedia.org/wikipedia/en/6/69/Moe_Szyslak.png" },
-      { id: 11, name: "Barney Gumble", image: "https://upload.wikimedia.org/wikipedia/en/2/2f/Barney_Gumble.png" },
-      { id: 12, name: "Apu Nahasapeemapetilon", image: "https://upload.wikimedia.org/wikipedia/en/2/23/Apu_Nahasapeemapetilon.png" },
-      { id: 13, name: "Krusty the Clown", image: "https://upload.wikimedia.org/wikipedia/en/5/5a/Krustytheclown.png" },
-      { id: 14, name: "Comic Book Guy", image: "https://upload.wikimedia.org/wikipedia/en/7/79/Comic_Book_Guy.png" },
-      { id: 15, name: "Otto Mann", image: "https://upload.wikimedia.org/wikipedia/en/8/8b/Otto_Mann.png" },
-      { id: 16, name: "Principal Skinner", image: "https://upload.wikimedia.org/wikipedia/en/3/3a/Seymour_Skinner.png" },
-      { id: 17, name: "Groundskeeper Willie", image: "https://upload.wikimedia.org/wikipedia/en/2/20/GroundskeeperWillie.png" },
-      { id: 18, name: "Mr. Burns", image: "https://upload.wikimedia.org/wikipedia/en/5/56/Mr_Burns.png" },
-      { id: 19, name: "Waylon Smithers", image: "https://upload.wikimedia.org/wikipedia/en/5/5c/Waylon_Smithers.png" },
-      { id: 20, name: "Chief Wiggum", image: "https://upload.wikimedia.org/wikipedia/en/0/02/Chief_Wiggum.png" }
+      { id: 1, name: "Alpha", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Alpha" },
+      { id: 2, name: "Beta", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Beta" },
+      { id: 3, name: "Gamma", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Gamma" },
+      { id: 4, name: "Delta", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Delta" },
+      { id: 5, name: "Epsilon", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Epsilon" },
+      { id: 6, name: "Zeta", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Zeta" },
+      { id: 7, name: "Eta", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Eta" },
+      { id: 8, name: "Theta", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Theta" },
+      { id: 9, name: "Iota", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Iota" },
+      { id: 10, name: "Kappa", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Kappa" },
+      { id: 11, name: "Lambda", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Lambda" },
+      { id: 12, name: "Mu", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Mu" },
+      { id: 13, name: "Nu", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Nu" },
+      { id: 14, name: "Xi", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Xi" },
+      { id: 15, name: "Omicron", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Omicron" },
+      { id: 16, name: "Pi", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Pi" },
+      { id: 17, name: "Rho", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Rho" },
+      { id: 18, name: "Sigma", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Sigma" },
+      { id: 19, name: "Tau", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Tau" },
+      { id: 20, name: "Omega", image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Omega" }
     ];
+
+      const gameRules = {
+        matchPoints: 5,
+        errorPoints: -1,
+        comboBonus: 2,
+        timeByDifficulty: {
+          easy: 120,
+          medium: 180,
+          hard: 240
+        }
+    };
 
     const difficultyConfig = {
       easy: { pairs: 10 },
