@@ -17,7 +17,7 @@ Jogo da memória moderno com sistema de pontuação, combo, ranking local e modo
 - JavaScript
 
 ## Jogue agora
-https://SEU-LINK.github.io/
+https://danilo-zanatta.github.io/
 
 ## Licença
 Este projeto utiliza apenas recursos livres de direitos autorais ou gerados dinamicamente.
